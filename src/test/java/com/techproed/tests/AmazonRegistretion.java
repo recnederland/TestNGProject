@@ -23,7 +23,7 @@ public class AmazonRegistretion extends TestBase {
         Assert.assertFalse(!driver.getTitle().equals("Amazon Registration"));
         Assert.assertEquals(driver.getTitle(), "Amazon Registration");
     }
-    @Test
+    @Test (dependsOnMethods = "test01")
     public void test02(){
         WebElement name = driver.findElement(By.id("ap_customer_name"));
         name.sendKeys("recep bayram");

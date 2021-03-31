@@ -58,4 +58,26 @@ public class ActionClassTest extends TestBase {
         // yon tuslari
         actions.sendKeys(Keys.ARROW_RIGHT).perform();
     }
+    // Sonraki gun
+    @Test
+    public void buyukKucukYazma(){
+        driver.get("http://google.com");
+//        WebElement gaAkkord = driver.findElement(By.className("jyfHyd"));
+//        gaAkkord.click();
+        WebElement searchBox = driver.findElement(By.name("q"));
+//        searchBox.sendKeys("fiets");
+        // klavye kullanarak buyuk yazma
+//        searchBox.sendKeys(Keys.SHIFT + "fiets");
+//        searchBox.click();
+        // klavye kullanarak bazen buyuk harfle
+        // bazen de kucuk harfle yamak icin action class kullanmaliyiz
+        Actions actions = new Actions(driver);
+        actions.moveToElement(searchBox).click()
+                .keyDown(Keys.SHIFT).sendKeys("Kazim")
+                .keyUp(Keys.SHIFT).sendKeys("Merhaba")
+                .keyDown(Keys.SHIFT).sendKeys("Nasilsiniz?")
+                .perform();
+
+
+    }
 }
